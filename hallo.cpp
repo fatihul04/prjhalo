@@ -1,8 +1,5 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <string.h>
 
 int main() {
-  cout << "Hello Dunia!";
-  cout << "Indonesia Hebat Merdekaa!"
-  return 0;
-}
+    char nama[5][50]; 
