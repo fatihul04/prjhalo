@@ -7,3 +7,10 @@ int main() {
     strcpy(nama[2], "Pepen");
     strcpy(nama[3], "Rayhan");
     strcpy(nama[4], "Abel");
+    printf("Daftar nama:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d. %s\n", i + 1, nama[i]);
+    }
+
+    return 0;
+}
