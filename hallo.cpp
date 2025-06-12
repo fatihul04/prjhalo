@@ -1,14 +1,21 @@
 #include <stdio.h>
 #include <string.h>
+
 int main() {
-    char nama[5][50]; 
-    strcpy(nama[0], "Fadli");
-    strcpy(nama[1], "Ijan");
-    strcpy(nama[2], "Pepen");
-    strcpy(nama[3], "Rayhan");
-    strcpy(nama[4], "Abel");
-    printf("Daftar nama:\n");
-    for (int i = 0; i < 5; i++) {
+    int jumlah;
+    
+    printf("Masukkan jumlah nama: ");
+    scanf("%d", &jumlah);
+
+    char nama[jumlah][100];
+
+    for (int i = 0; i < jumlah; i++) {
+        printf("Masukkan nama ke-%d: ", i + 1);
+        scanf(" %[^\n]s", nama[i]);
+    }
+    
+    printf("\nDaftar Nama:\n");
+    for (int i = 0; i < jumlah; i++) {
         printf("%d. %s\n", i + 1, nama[i]);
     }
 
