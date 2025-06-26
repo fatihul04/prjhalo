@@ -1,9 +1,31 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
+struct Lagu {
+    string judul;
+    string penyanyi;
+    Lagu* next;
+};
+Lagu* head = nullptr;
+void tambahLagu(string judul, string penyanyi) {
+    Lagu* laguBaru = new Lagu{judul, penyanyi, nullptr};
+
+    if (head == nullptr) {
+        head = laguBaru;
+    } else {
+        Lagu* temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;
+        }
+        temp->next = laguBaru;
+    }
+    cout << "Lagu \"" << judul << "\" oleh " << penyanyi << " ditambahkan.\n";
+}
 int main() {
     int pilihan;
     string judul, penyanyi;
+
 
     do {
         cout << "\n===== Playlist Musik =====\n";
