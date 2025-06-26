@@ -22,6 +22,43 @@ void tambahLagu(string judul, string penyanyi) {
     }
     cout << "Lagu \"" << judul << "\" oleh " << penyanyi << " ditambahkan.\n";
 }
+void tampilkanPlaylist() {
+    if (head == nullptr) {
+        cout << "Playlist kosong.\n";
+        return;
+    }
+
+    Lagu* temp = head;
+    int nomor = 1;
+    cout << "\n=== Daftar Lagu ===\n";
+    while (temp != nullptr) {
+        cout << nomor++ << ". " << temp->judul << " - " << temp->penyanyi << endl;
+        temp = temp->next;
+    }
+}
+void hapusLagu(string judul) {
+    Lagu* temp = head;
+    Lagu* prev = nullptr;
+
+    while (temp != nullptr && temp->judul != judul) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "Lagu \"" << judul << "\" tidak ditemukan.\n";
+        return;
+    }
+
+    if (prev == nullptr) {
+        head = temp->next;
+    } else {
+        prev->next = temp->next;
+    }
+
+    delete temp;
+    cout << "Lagu \"" << judul << "\" telah dihapus.\n";
+}
 int main() {
     int pilihan;
     string judul, penyanyi;
